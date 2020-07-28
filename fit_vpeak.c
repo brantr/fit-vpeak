@@ -52,7 +52,8 @@ void Read_V_Peak_Data(char fname[])
 
 	int i;	//dummy index
 
-	n_bins = 20;
+	if(n_bins==0)
+		n_bins = 20;
 
 	//print the number of luminosity bins
 	printf("n_bins %d\n",n_bins);
@@ -263,6 +264,8 @@ int main(int argc, char *argv[])
 
 	if(argc>1)
 		sprintf(fname,argv[1]);
+	if(argc>2)
+		n_bins = atoi(argv[2]);
 
 	printf("Reading data from %s....\n",fname);
 
